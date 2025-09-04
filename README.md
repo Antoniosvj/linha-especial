@@ -37,9 +37,9 @@ Este é um projeto de e-commerce completo, desenvolvido para demonstrar habilida
 
     * Autenticação de Usuário: Cadastro, login e edição de perfil com autenticação JWT.
 
-    * Gestão de Produtos: CRUD completo (Criar, Ler, Atualizar, Deletar) de produtos e seu estoque.
+    * Gestão de Produtos: CRUD completo (Criar, Ler, Atualizar) de produtos e seu estoque.
 
-    * Busca e Filtros: Pesquisa de produtos por nome e categoria.
+    * Busca e Filtros: Pesquisa de produtos categoria.
 
     * Carrinho de Compras: Simulação de um carrinho de compras.
 
@@ -59,6 +59,15 @@ Este é um projeto de e-commerce completo, desenvolvido para demonstrar habilida
     Navegue até a pasta raiz do projeto no seu terminal.
 
     cd linha_especial
+
+    crie um arquivo .env com o seguinte conteúdo
+        VITE_API_URL=http://localhost:8080/
+        VITE_IMAGEM_URL=http://localhost:8080/uploads/
+
+        JWT_SECRET=CRIE_UMA_CHAVE_SECRETA
+        POSTGRES_USER=SEU_USUARIO_POSTGRES
+        POSTGRES_PASSWORD=SEU_PASSWORD_POSTGRES
+        POSTGRES_DB=NOME_DO_SEU_BANCO_DE_DADOS
 
     Execute o seguinte comando para construir e iniciar todos os contêineres:
 

@@ -7,3 +7,5 @@ data/
 
 # Arquivos temporários do sistema
 .DS_Store
+
+.env

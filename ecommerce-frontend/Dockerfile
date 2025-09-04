@@ -5,7 +5,14 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+
+ARG VITE_API_URL
+ARG VITE_IMAGEM_URL
+
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_IMAGEM_URL=$VITE_IMAGEM_URL
 RUN npm run build
+
 
 # Estágio 2: Criação da imagem final
 # Usa uma imagem leve do NGINX para servir os arquivos estáticos
