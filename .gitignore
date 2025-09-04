@@ -1,0 +1,9 @@
+# Ignora a pasta de dados do banco de dados (gerada pelo Docker)
+data/
+
+# Ignora pastas de IDEs
+.idea/
+.vscode/
+
+# Arquivos temporários do sistema
+.DS_Store

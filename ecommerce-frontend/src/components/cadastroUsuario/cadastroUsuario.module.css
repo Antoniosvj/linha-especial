@@ -1,0 +1,104 @@
+.container {
+  margin: auto;
+  background-color: var(--bc-color);
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--preto);
+  width: 100%;
+  max-width: 600px;
+}
+h1 {
+  text-align: center;
+  color: var(--cinza-escuro);
+  margin-bottom: 25px;
+}
+h2 {
+  color: var(--cinza-escuro);
+  border-bottom: 1px solid var(--branco);
+  padding-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.formGroup {
+  margin-bottom: 18px;
+}
+.formGroup label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--cinza-escuro);
+  font-weight: bold;
+}
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid var(--cinza-claro);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.formGroup textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.formGroup small {
+  color: var(--cinza);
+  display: block;
+  margin-top: 4px;
+}
+.buttonContainer {
+  text-align: center;
+  margin-top: 30px;
+}
+.buttonContainer button {
+  background-color: var(--azul-medio);
+  color: var(--branco);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+.buttonContainer button:hover {
+  opacity: .7;
+}
+
+.passwordRules {
+  list-style: none; /* Remove os marcadores de lista padrão */
+  padding: 0;
+  margin-top: 10px;
+}
+
+.passwordRules li {
+  font-size: 0.8em;
+  padding: 3px 0;
+  transition: color 0.3s ease; /* Transição suave na mudança de cor */
+}
+
+.invalidRule {
+  color: var(--vermelho); /* Cor padrão para regras não cumpridas (vermelho) */
+}
+
+.validRule {
+  color: var(--cinza-claro); /* Cor para regras cumpridas (verde) */
+}
+
+.errorText {
+  color: var(--vermelho); /* Um vermelho vibrante para erros específicos */
+  font-size: 0.85em;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.cadastrar {
+  display: flex;
+  color: var(--cinza-medio);
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  
+  & small {
+    color: var(--primary-color);
+  }
+}

@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16.2-alpine
+    restart: always
+    container_name: ecommerce-db
+    environment:
+      POSTGRES_DB: ecommerce_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  backend:
+    build: ./ecommerce-backend
+    container_name: ecommerce-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      # Use as mesmas variáveis de ambiente do banco de dados
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/ecommerce_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+      JWT_SECRET: sua_chave_secreta_aqui_com_mais_de_256_bits_de_tamanho_e_bem_segura
+    depends_on:
+      - db
+
+  frontend:
+    build: ./ecommerce-frontend
+    container_name: ecommerce-frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:8080/api
+    depends_on:
+      - backend
+
+volumes:
+  db-data:
