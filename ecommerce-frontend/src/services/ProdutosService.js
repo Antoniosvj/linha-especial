@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const url = `${import.meta.env.VITE_API_URL}produtos`;
+const url = `${import.meta.env.VITE_API_URL}/produtos`;
 
-const getCategoriasProdutos = async () => {
+const getCategorias = async () => {
   try {
     const response = await axios.get(`${url}/categorias`);
+    console.log(response)
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar categorias.");
@@ -51,7 +52,7 @@ const getProdutoPorId = async (id) => {
 };
 
 export const produtosService = {
-  getCategoriasProdutos,
+  getCategorias,
   getProdutosPorCategoria,
   getProdutoPorId,
   getProdutos,

@@ -71,7 +71,7 @@ Este é um projeto de e-commerce completo, desenvolvido para demonstrar habilida
 
     Execute o seguinte comando para construir e iniciar todos os contêineres:
 
-    docker-compose up --build
+    docker compose up --build
 
     Após a conclusão, o frontend estará acessível em http://localhost:5173 e a API em http://localhost:8080.
 

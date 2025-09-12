@@ -15,7 +15,7 @@ export const Header = () => {
   useEffect(() => {
     const fetchProdutos = async () => {
       try {
-        const data = await produtosService.getCategoriasProdutos();
+        const data = await produtosService.getCategorias();
         setCategorias(data);
       } catch (err) {
         setError("Ocorreu um erro ao carregar as categorias.");

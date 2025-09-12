@@ -32,12 +32,13 @@ public class SecurityConfig {
             .cors(withDefaults())
             .authorizeHttpRequests(authorize -> authorize
                 // Endpoints públicos para cadastro, produtos e estoque
-                .requestMatchers("/api/usuarios/editar_senha/**").permitAll()
-                .requestMatchers("/api/usuarios/cadastro").permitAll()
-                .requestMatchers("/api/usuarios/login").permitAll()
-                .requestMatchers("/api/usuarios/editar/**").permitAll()
-                .requestMatchers("/api/produtos/**").permitAll()
-                .requestMatchers("/api/estoque/**").permitAll()
+                .requestMatchers("/usuarios/editar_senha/**").permitAll()
+                .requestMatchers("/usuarios/cadastro").permitAll()
+                .requestMatchers("/usuarios/login").permitAll()
+                .requestMatchers("/usuarios/editar/**").permitAll()
+                .requestMatchers("/produtos").permitAll()
+                .requestMatchers("/produtos/**").permitAll()
+                .requestMatchers("/estoque/**").permitAll()
                 // Permissão para acessar arquivos estáticos na pasta de uploads
                 .requestMatchers("/uploads/**").permitAll()
                 .anyRequest().authenticated()
