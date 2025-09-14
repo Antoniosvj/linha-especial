@@ -61,8 +61,8 @@ Este é um projeto de e-commerce completo, desenvolvido para demonstrar habilida
     cd linha_especial
 
     crie um arquivo .env com o seguinte conteúdo
-        VITE_API_URL=http://localhost:8080/
-        VITE_IMAGEM_URL=http://localhost:8080/uploads/
+        VITE_API_URL=http://backend:8080/
+        VITE_IMAGEM_URL=http://backend:8080/uploads/
 
         JWT_SECRET=CRIE_UMA_CHAVE_SECRETA
         POSTGRES_USER=SEU_USUARIO_POSTGRES
