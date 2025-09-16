@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts";
 import style from "./Header.module.css";
-import { produtosService } from "../../services/ProdutosService";
+import { produtosService, BuscarProdutos } from "../../services";
 
 export const Header = () => {
   const { isLoggedIn, user, logout } = useAuth();
@@ -11,6 +11,7 @@ export const Header = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [termoBusca, setTermoBusca] = useState('');
 
   useEffect(() => {
     const fetchProdutos = async () => {
@@ -33,14 +34,15 @@ export const Header = () => {
     navigate("/");
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Logica de busca");
-  };
-
   const handleOpenMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleBuscar = (e) =>{
+    e.preventDefault();
+    navigate(`/busca?nome=${termoBusca}`);
+    setTermoBusca('');
+  }
 
   if (loading) {
     return <p>Carregando categorias...</p>;
@@ -59,9 +61,15 @@ export const Header = () => {
           </Link>
         </div>
         <div>
-          <form onSubmit={handleSearch} className={style.formGroup}>
+          <form onSubmit={handleBuscar} className={style.formGroup}>
             <div className={style.formInput}>
-              <input type="text" placeholder="O que você procura?" />
+              <input 
+                type="text" 
+                placeholder="O que você procura?"
+                id="Buscar"
+                value={termoBusca}
+                onChange={(e) => setTermoBusca(e.target.value)}
+              />
             </div>
             <div className={style.formButton}>
               <button type="submit">
