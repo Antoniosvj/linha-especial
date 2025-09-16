@@ -39,28 +39,35 @@ export const CartPage = () => {
       ) : (
         <>
           <ul className={style.cartList}>
-            {cart.map((item, index) => (
-              <li key={index} className={style.cartItem}>
-                <img
-                  src={`${url}${item.produto.imagemUrl}`}
-                  alt={item.produto.nome}
-                  className={style.itemImage}
-                />
-                <div className={style.itemDetails}>
-                  <h3>{item.produto.nome}</h3>
-                  <p>Cor: {item.cor}</p>
-                  <p>Tamanho: {item.tamanho}</p>
-                  <p>Quantidade: {item.quantidade}</p>
-                  <p>
-                    Preço: R$
-                    {(item.produto.preco * item.quantidade)
-                      .toFixed(2)
-                      .replace(".", ",")}
-                  </p>
-                  <button onClick={() => removeFromCart(index)}>Remover</button>
-                </div>
-              </li>
-            ))}
+            {cart.map((item, index) => {
+              // Mova esta parte para fora do JSX
+              const imagemCorreta = item.produto.imagens.find(
+                (imagem) => imagem.corNome === item.cor
+              );
+
+              return (
+                <li key={index} className={style.cartItem}>
+                  <img
+                    src={`${url}${imagemCorreta ? imagemCorreta.url : item.produto.imagens[0].url}`}
+                    alt={item.produto.nome}
+                    className={style.itemImage}
+                  />
+                  <div className={style.itemDetails}>
+                    <h3>{item.produto.nome}</h3>
+                    <p>Cor: {item.cor}</p>
+                    <p>Tamanho: {item.tamanho}</p>
+                    <p>Quantidade: {item.quantidade}</p>
+                    <p>
+                      Preço: R$
+                      {(item.produto.preco * item.quantidade)
+                        .toFixed(2)
+                        .replace(".", ",")}
+                    </p>
+                    <button onClick={() => removeFromCart(index)}>Remover</button>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
           <div className={style.cartSummary}>
             <h3>Total: R${totalPrice.toFixed(2).replace(".", ",")}</h3>
@@ -70,4 +77,5 @@ export const CartPage = () => {
       )}
     </div>
   );
+
 };

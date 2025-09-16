@@ -11,7 +11,6 @@ const putCompra = async (cart) => {
     }
   } catch (error) {
     console.error(`Erro ao finalizar a compra: ${error}`);
-    alert("Ocorreu um erro ao finalizar a compra. Tente novamente.");
   }
 };
 
