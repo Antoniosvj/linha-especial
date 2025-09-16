@@ -52,6 +52,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         // Permite requisições do seu frontend (ou de qualquer lugar se usar Collections.singletonList("*"))
         configuration.setAllowedOriginPatterns(Collections.singletonList("http://localhost:5173"));
+        //configuration.setAllowedOriginPatterns(Collections.singletonList("*")); //usado para testar o frontend
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);

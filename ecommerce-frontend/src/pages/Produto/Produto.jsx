@@ -100,8 +100,8 @@ export const ProdutoPage = () =>{
             <section className={style.containerImg}>
                 <img src={imagemUrl} alt="" />
             </section>
-            <section>
-                <div className={style.containerDescricao}>
+            <section className={style.containerProduto}>
+                <div className={style.containerTitle}>
                     <h2>{produto.nome}</h2>
                     <p>A partir de <strong>{produto.preco.toFixed(2).replace('.', ',')}</strong></p>
                 </div>

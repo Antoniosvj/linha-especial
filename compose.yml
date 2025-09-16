@@ -29,15 +29,17 @@ services:
       - db
 
   frontend:
-    build: ./ecommerce-frontend
+    build: 
+      context: ./ecommerce-frontend
+      args:
+        - VITE_API_URL= ${VITE_API_URL}
+        - VITE_IMAGEM_URL= ${VITE_IMAGEM_URL}
     container_name: ecommerce-frontend
     restart: always
     env_file:
       - .env
     ports:
       - "5173:80"
-    environment:
-      VITE_API_URL: ${VITE_API_URL}
     depends_on:
       - backend
 
